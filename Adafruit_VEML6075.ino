@@ -19,6 +19,7 @@
  *
  */
  
+// include necessary libraries
 #include <Wire.h>
 #include "Adafruit_VEML6075.h"
 
@@ -28,6 +29,7 @@ void setup() {
   Serial.begin(115200);
   Serial.println("VEML6075 Full Test");
   if (! uv.begin()) {
+   // failsafe
     Serial.println("Failed to communicate with VEML6075 sensor, check wiring?");
   }
   Serial.println("Found VEML6075 sensor");
@@ -36,6 +38,7 @@ void setup() {
   uv.setIntegrationTime(VEML6075_100MS);
   // Get the integration constant and print it!
   Serial.print("Integration time set to ");
+ // test which VEML is in use and print corresponding values
   switch (uv.getIntegrationTime()) {
     case VEML6075_50MS: Serial.print("50"); break;
     case VEML6075_100MS: Serial.print("100"); break;
@@ -75,5 +78,6 @@ void loop() {
   Serial.print("Raw UVB reading:  "); Serial.println(uv.readUVB());
   Serial.print("UV Index reading: "); Serial.println(uv.readUVI());
 
+  // Add a delay
   delay(1000);
 }
