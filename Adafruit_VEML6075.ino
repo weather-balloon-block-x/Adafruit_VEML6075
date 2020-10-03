@@ -25,6 +25,7 @@
 
 Adafruit_VEML6075 uv = Adafruit_VEML6075();
 
+// setup function
 void setup() {
   Serial.begin(115200);
   Serial.println("VEML6075 Full Test");
@@ -32,6 +33,7 @@ void setup() {
    // failsafe
     Serial.println("Failed to communicate with VEML6075 sensor, check wiring?");
   }
+  // let user know that the sensor is found
   Serial.println("Found VEML6075 sensor");
 
   // Set the integration constant
@@ -74,6 +76,7 @@ void setup() {
 
 
 void loop() {
+  // loop that constantly reads values
   Serial.print("Raw UVA reading:  "); Serial.println(uv.readUVA());
   Serial.print("Raw UVB reading:  "); Serial.println(uv.readUVB());
   Serial.print("UV Index reading: "); Serial.println(uv.readUVI());
