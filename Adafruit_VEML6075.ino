@@ -82,5 +82,6 @@ void loop() {
   Serial.print("UV Index reading: "); Serial.println(uv.readUVI());
 
   // Add a delay
+  // apparently a delay is needed, why is this?
   delay(1000);
 }
